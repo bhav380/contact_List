@@ -12,16 +12,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(bodyParser.urlencoded({ Extended: false }));
 app.use(express.static('assets'));
 
-var contactList = [{
-        name: "Bhawesh Rathour",
-        phone: "8888888888"
-    },
-
-    {
-        name: "Mr.Codex",
-        phone: "1111111111"
-    }
-]
 
 app.get('/', function(req, res) {
 
