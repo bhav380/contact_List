@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title%>
+    </title>
+
+    <script src="https://kit.fontawesome.com/1505e6fedb.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+
+<body>
+
+    <div id="flex-container">
+
+        <h1 id="heading">
+            <i class="fa-solid fa-address-book"></i> My Contact List
+        </h1>
+        <ul id="contact-list">
+            <% for(i of contact_list) { %>
+
+                <li class="contact">
+                    <div class="details">
+
+                        <p class="name">
+                            <i class="fa-solid fa-user"></i>
+                            <%= i.name %>
+                        </p>
+
+                        <p class="phone">
+                            <%= i.phone %>
+                        </p>
+
+                    </div>
+
+                    <div class="delete-contact">
+
+                        <a href="/delete-contact/?id=<%= i.id %>">
+                            <i class="fa-solid fa-circle-xmark"></i>
+
+                        </a>
+
+                    </div>
+                </li>
+
+                <% } %>
+        </ul>
+
+        <form action="/create-contact" method="POST">
+            <input type="text" name="name" placeholder="Enter name" required>
+            <input type="number" name="phone" placeholder="Enter phone number" required>
+            <button type="submit"> Add Contact</button>
+        </form>
+
+    </div>
+    <script type="text/Javascript" src="/js/home.js"></script>
+
+</body>
+
+</html>
